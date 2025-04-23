@@ -1,7 +1,7 @@
 project(
   'raylib',
   'c',
-  version: '5.5',
+  version: '5.5.0',
   license: 'zlib',
   default_options: ['c_std=none'],
   meson_version: '>=1.1.0',

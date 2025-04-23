@@ -186,6 +186,11 @@ foreach category, files : examples_list
     example_inc_dirs += include_directories('others/external/include')
   endif
 
+  dependencies = [raylib_dep]
+  if target_platform == 'GLFW'
+    dependencies += dependency('glfw3')
+  endif
+
   foreach file : files
     basename = fs.name(file)
 
@@ -203,7 +208,7 @@ foreach category, files : examples_list
       f'@category@ @basename@',
       files(f'@file@.c'),
       include_directories: example_inc_dirs,
-      dependencies: [raylib_dep],
+      dependencies: dependencies,
       c_args: example_compile_args,
     )
   endforeach
